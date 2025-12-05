@@ -1,0 +1,132 @@
+/* Reset de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+}
+
+/* Container de la scène */
+.scene {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Image de fond */
+.scene-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    /* Important : laisse passer les clics */
+    pointer-events: none;
+}
+
+/* Zones cliquables */
+.hotspot {
+    position: absolute;
+    z-index: 10;
+    cursor: pointer;
+
+}
+
+/* --- Coordonnées des hotspots en % --- */
+.hotspot-1 {
+    left: calc(230 / 1520 * 100%);
+    top: calc(540 / 1080 * 100%);
+    width: calc((270 - 210) / 1520 * 100%);
+    height: calc((560 - 430) / 1080 * 100%);
+}
+
+.hotspot-2 {
+    left: calc(480 / 1920 * 100%);
+    top: calc(520 / 1080 * 100%);
+    width: calc((500 - 410) / 1520 * 100%);
+    height: calc((560 - 430) / 1080 * 100%);
+}
+
+.hotspot-3 {
+    left: calc(1330 / 1920 * 100%);
+    top: calc(520 / 1080 * 100%);
+    width: calc((1080 - 1010) / 1520 * 100%);
+    height: calc((560 - 430) / 1080 * 100%);
+}
+
+.hotspot-4 {
+    left: calc(990 / 1920 * 100%);
+    top: calc(500 / 1080 * 100%);
+    width: calc((1080 - 1010) / 1520 * 100%);
+    height: calc((560 - 430) / 1080 * 100%);
+}
+
+.hotspot-5 {
+    left: calc(1430 / 1920 * 100%);
+    top: calc(480 / 1080 * 100%);
+    width: calc((1080 - 1010) / 1520 * 100%);
+    height: calc((560 - 430) / 1080 * 100%);
+}
+
+/* Écran d'accueil */
+#startScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://i.imgur.com/rr97zqU.jpeg'); /* ton image */
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    transition: opacity 0.6s ease;
+}
+
+/* Fond flouté pour compatibilité */
+#startScreen::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    filter: blur(12px);
+    z-index: -1;
+}
+
+/* Contenu centré */
+.start-content {
+    text-align: center;
+    color: white;
+    text-shadow: 0 0 10px black;
+}
+
+/* Titre */
+.start-content h1 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+}
+
+/* Bouton JOUER */
+#playButton {
+    padding: 15px 40px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+#playButton:hover {
+    transform: scale(1.1);
+    background-color: white;
+}
